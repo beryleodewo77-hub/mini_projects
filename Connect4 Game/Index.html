@@ -1,0 +1,82 @@
+  <!doctype html>
+ <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connect Four</title>
+    <meta name="description" content="Classic Connect Four game — play against a friend or the AI." />
+    <link rel="stylesheet" href="style.css" />
+    
+      </head>
+    <body>
+    <div class="app">
+      <div class="bg-accent bg-accent-1"></div>
+      <div class="bg-accent bg-accent-2"></div>
+      <div class="bg-accent bg-accent-3"></div>
+
+      <header class="header">
+        <span class="badge">Classic strategy game</span>
+        <h1 class="title">Connect Four</h1>
+        <p class="subtitle">Line up four pieces in a row to win</p>
+      </header>
+
+      <div class="controls">
+        <div class="toggle-group" id="modeToggle">
+          <button class="toggle-btn active" data-mode="pvp">2 Players</button>
+          <button class="toggle-btn" data-mode="ai">vs AI</button>
+        </div>
+        <div class="toggle-group" id="difficultyToggle" hidden>
+          <button class="toggle-btn" data-depth="2">Easy</button>
+          <button class="toggle-btn active" data-depth="4">Medium</button>
+          <button class="toggle-btn" data-depth="6">Hard</button>
+        </div>
+      </div>
+
+      <div class="scoreboard">
+        <div class="score-card score-card-p1" id="scoreCard1">
+          <div class="score-label">
+            <span class="score-dot dot-p1"></span>
+            <span id="label1">Player 1</span>
+          </div>
+          <span class="score-value" id="score1">0</span>
+        </div>
+        <span class="vs">vs</span>
+        <div class="score-card score-card-p2" id="scoreCard2">
+          <div class="score-label">
+            <span class="score-dot dot-p2"></span>
+            <span id="label2">Player 2</span>
+          </div>
+          <span class="score-value" id="score2">0</span>
+        </div>
+      </div>
+
+      <div class="status-bar">
+        <span class="status-dot" id="statusDot"></span>
+        <span class="status-text" id="statusText">Player 1's turn</span>
+      </div>
+
+      <div class="board-wrapper">
+        <div class="column-indicators" id="columnIndicators"></div>
+        <div class="board" id="board"></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-secondary" id="resetBtn">Reset Board</button>
+        <button class="btn btn-primary" id="nextRoundBtn" hidden>Next Round</button>
+        <button class="btn btn-secondary" id="newMatchBtn">New Match</button>
+      </div>
+
+      <div class="info-row">
+        <span id="roundInfo">Round 1</span>
+        <span id="drawInfo" hidden>Draws: 0</span>
+      </div>
+
+      <p class="how-to-play">
+        Click any column to drop your piece. Pieces fall to the lowest open slot.
+        Get four in a row — horizontally, vertically, or diagonally — to win.
+      </p>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

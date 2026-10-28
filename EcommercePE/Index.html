@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global Empress — Premium Tech Store</title>
+    <meta name="description" content="Discover curated electronics and accessories from the world's best brands." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header" class="header">
+      <div class="header-inner">
+        <div class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Global Empress</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#products">Shop</a>
+          <a href="#features">Features</a>
+          <a href="#footer">About</a>
+        </nav>
+        <button id="cart-btn" class="cart-btn" aria-label="Open cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          <span class="cart-label">Cart</span>
+          <span id="cart-badge" class="cart-badge" style="display:none">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="badge">New arrivals just dropped</span>
+        <h1>Premium tech,<br />effortless shopping.</h1>
+        <p>Discover curated electronics and accessories from the world's best brands. Free shipping on orders over $100.</p>
+        <div class="hero-actions">
+          <a href="#products" class="btn btn-primary">Shop Now</a>
+          <a href="#features" class="btn btn-outline">Why Global Empress</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features bar -->
+    <section id="features" class="features">
+      <div class="features-inner">
+        <div class="feature">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62L18.3 8.38a1 1 0 0 0-.78-.38H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+          </div>
+          <div>
+            <p class="feature-title">Free Shipping</p>
+            <p class="feature-desc">On orders over $100</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          </div>
+          <div>
+            <p class="feature-title">30-Day Returns</p>
+            <p class="feature-desc">No questions asked</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <div>
+            <p class="feature-title">2-Year Warranty</p>
+            <p class="feature-desc">On all electronics</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="products-section">
+      <div class="container">
+        <h2 class="section-title">Shop All Products</h2>
+        <p class="section-subtitle">Browse our full catalog of premium electronics.</p>
+
+        <div class="toolbar">
+          <div class="search-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input id="search-input" type="text" placeholder="Search products..." />
+          </div>
+          <div id="category-filters" class="category-filters"></div>
+        </div>
+
+        <div id="product-grid" class="product-grid"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">Global Empress </div>
+            <p>Premium electronics and accessories, curated for the modern lifestyle.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Shop</h4>
+            <a href="#products">All Products</a>
+            <a href="#products">Audio</a>
+            <a href="#products">Wearables</a>
+            <a href="#products">Cameras</a>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <a href="#features">Shipping</a>
+            <a href="#features">Returns</a>
+            <a href="#features">Warranty</a>
+            <a href="#footer">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#footer">About Us</a>
+            <a href="#footer">Careers</a>
+            <a href="#footer">Privacy</a>
+            <a href="#footer">Terms</a>
+          </div>
+        </div>
+        <p class="footer-bottom">© 2026 Global Empress Store — Built with HTML, CSS & JavaScript</p>
+      </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cart-backdrop" class="cart-backdrop"></div>
+    <aside id="cart-drawer" class="cart-drawer">
+      <div class="cart-header">
+        <h3>Your Cart <span id="cart-count-label"></span></h3>
+        <button id="cart-close" class="icon-btn" aria-label="Close cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <div id="cart-footer" class="cart-footer" style="display:none">
+        <div class="cart-subtotal">
+          <span>Subtotal</span>
+          <span id="cart-subtotal-amount">$0.00</span>
+        </div>
+        <p class="cart-note">Shipping and taxes calculated at checkout.</p>
+        <button id="checkout-btn" class="btn btn-primary btn-full">Checkout</button>
+      </div>
+    </aside>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal-overlay" style="display:none">
+      <div class="modal">
+        <div id="checkout-form-view">
+          <div class="modal-header">
+            <h3>Checkout</h3>
+            <button id="checkout-close" class="icon-btn" aria-label="Close">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+          </div>
+          <form id="checkout-form" class="checkout-form">
+            <label class="form-label">Full Name<input type="text" required placeholder="John Doe" /></label>
+            <label class="form-label">Email<input type="email" required placeholder="john@example.com" /></label>
+            <label class="form-label">Street Address<input type="text" required placeholder="123 Main St" /></label>
+            <div class="form-row">
+              <label class="form-label">City<input type="text" required placeholder="San Francisco" /></label>
+              <label class="form-label">ZIP Code<input type="text" required placeholder="94101" /></label>
+            </div>
+            <label class="form-label">Card Number<input type="text" required placeholder="0000 0000 0000 0000" /></label>
+            <div id="checkout-summary" class="checkout-summary"></div>
+            <button type="submit" id="place-order-btn" class="btn btn-primary btn-full">Place Order</button>
+          </form>
+        </div>
+        <div id="checkout-success-view" style="display:none">
+          <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3 class="success-title">Order Confirmed!</h3>
+          <p class="success-text">Thank you for your purchase. A confirmation email has been sent to your inbox. Your items are on their way.</p>
+          <button id="success-close" class="btn btn-primary">Continue Shopping</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

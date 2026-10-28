@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuizArena — Test Your Knowledge</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="scoreGradId" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#22d3ee" />
+                <stop offset="100%" stop-color="#3b82f6" />
+            </linearGradient>
+        </defs>
+    </svg>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- ==================== START SCREEN ==================== -->
+        <section id="start-screen" class="screen active">
+            <div class="screen-inner">
+                <div class="badge">
+                    <span class="badge-icon">✦</span>
+                    <span>TRIVIA CHALLENGE</span>
+                </div>
+                <h1 class="title">Quiz<span class="title-accent">Arena</span></h1>
+                <p class="subtitle">Test your knowledge across multiple categories. Race against the clock and climb the
+                    leaderboard.</p>
+
+                <div class="card setup-card">
+                    <label class="field-label" for="player-name">Your Name</label>
+                    <input type="text" id="player-name" placeholder="Enter your name..." maxlength="20"
+                        autocomplete="off" />
+                    <p id="name-error" class="error-msg"></p>
+
+                    <label class="field-label">Choose a Category</label>
+                    <div class="category-grid" id="category-grid"></div>
+
+                    <label class="field-label">Select Difficulty</label>
+                    <div class="difficulty-grid" id="difficulty-grid"></div>
+
+                    <div class="info-bar">
+                        <span class="info-item"><span class="info-icon">◎</span> 8 Questions</span>
+                        <span class="info-item"><span class="info-icon">⏱</span> Timed Rounds</span>
+                        <span class="info-item"><span class="info-icon">🏆</span> Leaderboard</span>
+                    </div>
+
+                    <div class="button-row">
+                        <button id="leaderboard-btn" class="btn btn-secondary">
+                            🏆 Leaderboard
+                        </button>
+                        <button id="start-btn" class="btn btn-primary">
+                            Start Quiz <span class="btn-arrow">▶</span>
+                        </button>
+                    </div>
+                </div>
+
+                <p class="footer-text">Built with HTML · CSS · JavaScript · Superbase </p>
+            </div>
+        </section>
+
+        <!-- ==================== QUIZ SCREEN ==================== -->
+        <section id="quiz-screen" class="screen">
+            <div class="screen-inner quiz-inner">
+                <div class="quiz-top-bar">
+                    <button id="quit-btn" class="link-btn">Quit</button>
+                    <div class="quiz-stats">
+                        <span class="stat"><span class="stat-icon stat-score">🏆</span> <strong
+                                id="quiz-score">0</strong><span class="stat-unit"> pts</span></span>
+                        <span class="stat"><span class="stat-icon stat-correct">✓</span> <strong
+                                id="quiz-correct">0</strong><span class="stat-unit"
+                                id="quiz-total-label">/8</span></span>
+                    </div>
+                </div>
+
+                <div class="progress-section">
+                    <div class="progress-labels">
+                        <span id="question-counter">Question 1 of 8</span>
+                        <span id="quiz-meta">Web Development · Medium</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div id="timer-wrap" class="timer-wrap">
+                    <div class="timer-ring">
+                        <svg class="timer-svg" viewBox="0 0 64 64">
+                            <circle class="timer-bg-circle" cx="32" cy="32" r="28" />
+                            <circle class="timer-fg-circle" id="timer-circle" cx="32" cy="32" r="28" />
+                        </svg>
+                        <span class="timer-text" id="timer-text">15</span>
+                    </div>
+                </div>
+
+                <div class="card question-card">
+                    <p class="question-text" id="question-text"></p>
+                    <div class="options-list" id="options-list"></div>
+                    <div id="explanation-box" class="explanation-box hidden"></div>
+                </div>
+
+                <button id="next-btn" class="btn btn-primary next-btn hidden">Next Question <span
+                        class="btn-arrow">▸</span></button>
+                <p class="footer-text" id="playing-as"></p>
+            </div>
+        </section>
+
+        <!-- ==================== RESULT SCREEN ==================== -->
+        <section id="result-screen" class="screen">
+            <div class="screen-inner">
+                <div class="result-badge">
+                    <span id="rank-icon" class="rank-icon">★</span>
+                    <span id="rank-label" class="rank-label">Excellent!</span>
+                </div>
+
+                <div class="score-ring-wrap">
+                    <svg class="score-ring" viewBox="0 0 144 144">
+                        <circle class="score-ring-bg" cx="72" cy="72" r="64" />
+                        <circle class="score-ring-fg" id="score-ring-circle" cx="72" cy="72" r="64" />
+                    </svg>
+                    <div class="score-ring-center">
+                        <span class="score-ring-value" id="accuracy-value">0%</span>
+                        <span class="score-ring-label">Accuracy</span>
+                    </div>
+                </div>
+
+                <div class="card result-card">
+                    <div class="total-score-section">
+                        <p class="total-score-label">Total Score</p>
+                        <p class="total-score-value" id="total-score">0</p>
+                        <p class="total-score-unit">points</p>
+                    </div>
+
+                    <div class="result-stats">
+                        <div class="result-stat">
+                            <span class="result-stat-icon correct">✓</span>
+                            <p class="result-stat-value" id="result-correct">0</p>
+                            <p class="result-stat-label">Correct</p>
+                        </div>
+                        <div class="result-stat">
+                            <span class="result-stat-icon wrong">✕</span>
+                            <p class="result-stat-value" id="result-wrong">0</p>
+                            <p class="result-stat-label">Wrong</p>
+                        </div>
+                        <div class="result-stat">
+                            <span class="result-stat-icon time">⏱</span>
+                            <p class="result-stat-value" id="result-time">0s</p>
+                            <p class="result-stat-label">Time</p>
+                        </div>
+                    </div>
+
+                    <div class="result-tags">
+                        <span class="result-tag" id="result-category"></span>
+                        <span class="result-tag" id="result-difficulty"></span>
+                    </div>
+
+                    <button id="save-score-btn" class="btn btn-primary save-btn">
+                        🏆 Save to Leaderboard
+                    </button>
+                    <div id="save-success" class="save-success hidden">
+                        ✓ Score saved to leaderboard!
+                    </div>
+                    <p id="save-error" class="error-msg center"></p>
+
+                    <div class="result-actions">
+                        <button id="home-btn" class="btn btn-tertiary">
+                            <span class="action-icon">⌂</span>
+                            <span>Home</span>
+                        </button>
+                        <button id="play-again-btn" class="btn btn-tertiary">
+                            <span class="action-icon">↻</span>
+                            <span>Play Again</span>
+                        </button>
+                        <button id="share-btn" class="btn btn-tertiary">
+                            <span class="action-icon">⇪</span>
+                            <span>Share</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== LEADERBOARD SCREEN ==================== -->
+        <section id="leaderboard-screen" class="screen">
+            <div class="screen-inner leaderboard-inner">
+                <div class="lb-top-bar">
+                    <button id="lb-back-btn" class="link-btn">← Back</button>
+                    <button id="lb-refresh-btn" class="link-btn">
+                        <span id="lb-refresh-icon" class="refresh-icon">↻</span> Refresh
+                    </button>
+                </div>
+
+                <div class="lb-header">
+                    <div class="badge badge-amber">
+                        <span>🏆</span>
+                        <span>LEADERBOARD</span>
+                    </div>
+                    <h2 class="lb-title">Top Players</h2>
+                    <p class="lb-subtitle">The highest scores from all quiz challenges</p>
+                </div>
+
+                <div class="card leaderboard-card">
+                    <div id="leaderboard-content"></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase-js.min.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
